@@ -16,6 +16,7 @@
         "whitelist": []
       },
       "auto_update": true,
+         "name": "git-mat",
       "type": "git"
     },
     {

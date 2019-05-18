@@ -1,0 +1,211 @@
+{
+  "group": "Deploy",
+  "name": "Deploy-Pipeline",
+  "display_order_weight": -1.0,
+  "label_template": "${COUNT}",
+  "lock_behavior": "none",
+  "environment_variables": [],
+  "parameters": [],
+  "materials": [
+    {
+      "url": "https://github.com/ankitsri11/gocd-sample-config-repo",
+      "branch": "master",
+      "shallow_clone": false,
+      "filter": {
+        "ignore": [],
+        "whitelist": []
+      },
+      "auto_update": true,
+      "type": "git"
+    },
+    {
+      "pipeline": "Pipeline1",
+      "stage": "defaultStage",
+      "name": "Upstream-pipe1",
+      "type": "dependency"
+    },
+    {
+      "pipeline": "Pipeline2",
+      "stage": "defaultStage",
+      "name": "Upstream-pipe2",
+      "type": "dependency"
+    },
+    {
+      "pipeline": "Pipeline3",
+      "stage": "defaultStage",
+      "name": "Upstream-pipe3",
+      "type": "dependency"
+    },
+    {
+      "pipeline": "Pipeline4",
+      "stage": "defaultStage",
+      "name": "Upstream-pipe4",
+      "type": "dependency"
+    },
+    {
+      "pipeline": "Pipeline5",
+      "stage": "defaultStage",
+      "name": "Upstream-pipe5",
+      "type": "dependency"
+    },
+    {
+      "pipeline": "Pipeline6",
+      "stage": "defaultStage",
+      "name": "Upstream-pipe6",
+      "type": "dependency"
+    },
+    {
+      "pipeline": "Pipeline7",
+      "stage": "defaultStage",
+      "name": "Upstream-pipe7",
+      "type": "dependency"
+    },
+    {
+      "pipeline": "Pipeline8",
+      "stage": "defaultStage",
+      "name": "Upstream-pipe8",
+      "type": "dependency"
+    },
+    {
+      "pipeline": "Pipeline9",
+      "stage": "defaultStage",
+      "name": "Upstream-pipe9",
+      "type": "dependency"
+    }
+  ],
+  "stages": [
+    {
+      "name": "defaultStage",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "approval": {
+        "type": "success",
+        "users": [],
+        "roles": []
+      },
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "defaultJob",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "properties": [],
+          "run_instance_count": "0",
+          "timeout": 0.0,
+          "tasks": [
+            {
+              "command": "ls",
+              "timeout": -1.0,
+              "arguments": [],
+              "run_if": "passed",
+              "type": "exec"
+            },
+            {
+              "source": "Pipeline1.txt",
+              "is_source_a_file": true,
+              "destination": "",
+              "pipeline": "Pipeline1",
+              "stage": "defaultStage",
+              "job": "defaultJob",
+              "run_if": "passed",
+              "type": "fetch"
+            },
+            {
+              "source": "Pipeline2.txt",
+              "is_source_a_file": true,
+              "destination": "",
+              "pipeline": "Pipeline2",
+              "stage": "defaultStage",
+              "job": "defaultJob",
+              "run_if": "passed",
+              "type": "fetch"
+            },
+            {
+              "source": "Pipeline3.txt",
+              "is_source_a_file": true,
+              "destination": "",
+              "pipeline": "Pipeline3",
+              "stage": "defaultStage",
+              "job": "defaultJob",
+              "run_if": "passed",
+              "type": "fetch"
+            },
+            {
+              "source": "Pipeline4.txt",
+              "is_source_a_file": true,
+              "destination": "",
+              "pipeline": "Pipeline4",
+              "stage": "defaultStage",
+              "job": "defaultJob",
+              "run_if": "passed",
+              "type": "fetch"
+            },
+            {
+              "source": "Pipeline5.txt",
+              "is_source_a_file": true,
+              "destination": "",
+              "pipeline": "Pipeline5",
+              "stage": "defaultStage",
+              "job": "defaultJob",
+              "run_if": "passed",
+              "type": "fetch"
+            },
+            {
+              "source": "Pipeline6.txt",
+              "is_source_a_file": true,
+              "destination": "",
+              "pipeline": "Pipeline6",
+              "stage": "defaultStage",
+              "job": "defaultJob",
+              "run_if": "passed",
+              "type": "fetch"
+            },
+            {
+              "source": "Pipeline7.txt",
+              "is_source_a_file": true,
+              "destination": "",
+              "pipeline": "Pipeline7",
+              "stage": "defaultStage",
+              "job": "defaultJob",
+              "run_if": "passed",
+              "type": "fetch"
+            },
+            {
+              "source": "Pipeline8.txt",
+              "is_source_a_file": true,
+              "destination": "",
+              "pipeline": "Pipeline8",
+              "stage": "defaultStage",
+              "job": "defaultJob",
+              "run_if": "passed",
+              "type": "fetch"
+            },
+            {
+              "source": "Pipeline9.txt",
+              "is_source_a_file": true,
+              "destination": "",
+              "pipeline": "Pipeline9",
+              "stage": "defaultStage",
+              "job": "defaultJob",
+              "run_if": "passed",
+              "type": "fetch"
+            },
+            {
+              "command": "/bin/bash",
+              "timeout": -1.0,
+              "arguments": [
+                "-c",
+                "cat Pipeline*"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

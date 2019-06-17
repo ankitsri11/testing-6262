@@ -49,7 +49,7 @@
           "timeout": 0.0,
           "tasks": [
             {
-              "command": "ll",
+              "command": "ls",
               "timeout": -1.0,
               "arguments": [],
               "run_if": "passed",
